@@ -5,6 +5,7 @@ library(tidytuesdayR)
 # Loading data
 tt <- tt_load("2021-04-06")
 
+# Wrangling data
 # Creating a function to tidy the tt$brazil_loss data set
 ## The function "tidy_brazil_loss" takes a variable name as an argument
 ## It returns that variable in a tidy format, with one row per observation and one column per variable
@@ -60,4 +61,4 @@ tidy_brazil %>%
        subtitle = "Dashed line for perspective (10,000 hectares is about 10,000 rugby fields)",
        caption = "Source: Our World in Data")
 
-ggsave("2021/w15/deforestation-in-brazil.png", width = 16, height = 10)
+ggsave("2021/w15/deforestation-in-brazil.png", width = 8, height = 6)
