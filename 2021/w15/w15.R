@@ -44,13 +44,13 @@ levels(tidy_brazil$cause) <- c("Commercial crops",
                                "Small scale clearing",
                                "Tree plantations")
 
-# Printing tidied version of tt$brazil_loss
+# Print tidied version of tt$brazil_loss
 tidy_brazil
 
 # Plotting the causes of deforestation in Brazil
 tidy_brazil %>% 
   ggplot(aes(year, loss, colour = cause)) +
-  geom_line(size = 0.8) +
+  geom_line(colour = "gray35" ,size = 0.8) +
   geom_hline(yintercept = 10000, linetype = 2, size = 0.5) +
   facet_wrap(~cause, scales = "free") +
   theme_light() + 
