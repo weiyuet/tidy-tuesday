@@ -15,7 +15,6 @@ top_brands <- allShades %>%
   slice_max(order_by = n, n = 14)
 
 # Filtering foundation names for lightness values
-
 simplified_names <- allShades %>% 
   mutate(rounded = signif(lightness, digits = 1)) %>% 
   filter(!is.na(name)) %>% 
@@ -28,6 +27,22 @@ simplified_names <- allShades %>%
 total_words <- simplified_names %>% 
   group_by(rounded) %>% 
   summarise(total = sum(n))
+
+# Changing "rounded" to a factor variable with levels
+simplified_names <- left_join(simplified_names, total_words, by = "rounded")
+simplified_names <- simplified_names %>% 
+  bind_tf_idf(word, rounded, n)
+simplified_names$rounded <- as.factor(simplified_names$rounded)
+
+table(simplified_names$rounded)
+
+levels(simplified_names$rounded) <- c("Lightness: 0.2, n = 28",
+                                      "Lightness: 0.4, n = 148",
+                                      "Lightness: 0.6, n = 221",
+                                      "Lightness: 0.8, n = 217",
+                                      "Lightness: 1.0, n = 50")
+
+simplified_names
 
 # Plotting foundations from top brands according to lightness
 allShades %>% 
@@ -51,7 +66,7 @@ allShades %>%
   filter(brand %in% top_brands$brand) %>% 
   ggplot(aes(lightness, brand, fill = brand, group = brand)) +
   geom_density_ridges_gradient() +
-  scale_fill_brewer(type = "qual", palette = 3) +
+  scale_fill_viridis_d() +
   xlim(0, 1) +
   theme_light() +
   geom_vline(xintercept = 0.25, linetype = "dashed") +
