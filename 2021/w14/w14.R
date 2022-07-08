@@ -1,20 +1,20 @@
-# Loading libraries
+# Load libraries
 library(tidyverse)
 library(tidytext)
 library(forcats)
 library(ggridges)
 
-# Loading data
+# Load data
 allShades <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-30/allShades.csv")
 
-# Wrangling data
+# Wrangle data
 # Selecting the 14 brands with the most foundations in the data set
 top_brands <- allShades %>% 
   select(brand) %>% 
   count(brand) %>% 
   slice_max(order_by = n, n = 14)
 
-# Filtering foundation names for lightness values
+# Filter foundation names for lightness values
 simplified_names <- allShades %>% 
   mutate(rounded = signif(lightness, digits = 1)) %>% 
   filter(!is.na(name)) %>% 
@@ -23,12 +23,12 @@ simplified_names <- allShades %>%
   unnest_tokens(word, name) %>%
   count(rounded, word, sort = TRUE)
 
-# Counting total number of words for each lightness value
+# Count total number of words for each lightness value
 total_words <- simplified_names %>% 
   group_by(rounded) %>% 
   summarise(total = sum(n))
 
-# Changing "rounded" to a factor variable with levels
+# Change "rounded" to a factor variable with levels
 simplified_names <- left_join(simplified_names, total_words, by = "rounded")
 simplified_names <- simplified_names %>% 
   bind_tf_idf(word, rounded, n)
@@ -44,7 +44,7 @@ levels(simplified_names$rounded) <- c("Lightness: 0.2, n = 28",
 
 simplified_names
 
-# Plotting foundations from top brands according to lightness
+# Plot foundations from top brands according to lightness
 allShades %>% 
   filter(brand %in% top_brands$brand) %>% 
   ggplot(aes(lightness, brand, colour = hex)) +
@@ -61,7 +61,7 @@ allShades %>%
 
 ggsave("2021/w14/foundations-vs-lightness.png", width = 6, height = 8)
 
-# Plotting foundations distributions
+# Plot foundations distributions
 allShades %>% 
   filter(brand %in% top_brands$brand) %>% 
   ggplot(aes(lightness, brand, fill = brand, group = brand)) +

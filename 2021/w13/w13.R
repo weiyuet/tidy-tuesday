@@ -1,20 +1,20 @@
-# Loading libraries
+# Load libraries
 library(forcats)
 library(tidytext)
 library(tidyverse)
 library(tidytuesdayR)
 
-# Loading data
+# Load data
 tt <- tt_load("2021-03-23")
 
-# Wrangling data
-# Extracting US votes on each UN resolution
+# Wrangle data
+# Extract US votes on each UN resolution
 US_votes <- tt$unvotes %>% 
   filter(country_code == "US") %>% 
   select(rcid, vote)
 colnames(US_votes) <- c("rcid", "US_vote")
 
-# Combining US votes and resolution issues with "roll_calls" data set for important votes
+# Combine US votes and resolution issues with "roll_calls" data set for important votes
 important_votes <- tt$roll_calls %>% 
   filter(rcid %in% US_votes$rcid &
            importantvote == 1)
@@ -34,21 +34,21 @@ important_votes <- left_join(important_votes,
                              tt$issues, by = "rcid")
 important_votes
 
-# Counting the number of votes for each country that matches with the US vote
+# Count number of votes for each country that matches with the US vote
 agree_with_US_count <- important_votes %>% 
   group_by(agree_with_US) %>% 
   select(country, agree_with_US) %>% 
   count(agree_with_US, country, sort = TRUE)
 agree_with_US_count$country <- as.factor(agree_with_US_count$country)
 
-# Country the number of votes same/different as the US vote on UN resolution in different categories
+# Count number of votes same/different as the US vote on UN resolution in different categories
 votes_by_issue <- important_votes %>% 
   filter(!is.na(issue)) %>% 
   select(date, agree_with_US, issue) %>% 
   group_by(date, issue) %>% 
   count(agree_with_US)
 
-# Plotting countries that agreed/disagreed with the most US votes
+# Plot countries that agreed/disagreed with the most US votes
 agree_with_US_count %>% 
   slice_head(n = 15) %>% 
   ggplot(aes(n, fct_reorder(country, n), fill = agree_with_US)) +
@@ -62,7 +62,7 @@ agree_with_US_count %>%
   
 ggsave("2021/w13/agree-disagree-with-US-UN-resolutions.png", width = 8, height = 6)
 
-# Plotting votes on different categories of UN resolutions over time
+# Plot votes on different categories of UN resolutions over time
 votes_by_issue %>% 
   ggplot(aes(x = date, y = n, group = agree_with_US, colour = agree_with_US)) +
   geom_line(size = 0.8) +

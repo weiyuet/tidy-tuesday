@@ -72,7 +72,7 @@ top_listing_words %>%
   ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = listed_in)) +
   geom_col() +
   theme_light() +
-  scale_fill_discrete() +
+  scale_fill_viridis_d() +
   labs(x = "Term frequency-inverse document frequency (tf-idf)",
        y = "",
        fill = "Netflix categories",

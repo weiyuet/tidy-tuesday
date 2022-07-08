@@ -1,14 +1,14 @@
-# Loading libraries
+# Load libraries
 library(tidyverse)
 library(rnaturalearth)
 library(sf)
 library(cowplot)
 
-# Loading data
+# Load data
 freedom <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-02-22/freedom.csv")
 head(freedom);names(freedom)
 
-# Wrangling data
+# Wrangle data
 freedom1 <- freedom %>% 
   mutate(country=case_when(country=="Bolivia (Plurinational State of)"~"Bolivia",
                            country=="Côte d’Ivoire"~"Ivory Coast",
