@@ -29,5 +29,5 @@ rent_small %>%
        title = "Rents in the Bay Area - Core Cities",
        caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nChart: @weiyuet #TidyTuesday")
 
-ggsave("2022/w27/rent-cupertino-frisco.png", width = 9, height = 6)
+ggsave("2022/w27/rent-bay-area-core-cities.png", width = 9, height = 6)
   
