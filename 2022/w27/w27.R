@@ -16,6 +16,7 @@ rent_small <- rent %>%
 rent_small %>%
   ggplot(aes(x = year, y = price, colour = city)) +
   geom_point() +
+  geom_jitter() +
   geom_smooth() +
   facet_wrap(~city) +
   scale_y_log10(labels = label_dollar(big.mark = ",", accuracy = 1)) +
@@ -28,5 +29,5 @@ rent_small %>%
        title = "Rents",
        caption = "#TidyTuesday")
 
-ggsave("2022/w27/rent-cupertino.png", width = 6, height = 6)
+ggsave("2022/w27/rent-cupertino-frisco.png", width = 6, height = 6)
   
