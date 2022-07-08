@@ -21,7 +21,8 @@ rent_small %>%
   scale_y_log10(labels = label_dollar(big.mark = ",", accuracy = 1)) +
   scale_x_continuous() +
   theme_classic() +
-  theme(legend.position = "none") +
+  theme(legend.position = "none",
+        axis.text.y = element_text(angle = 35)) +
   scale_colour_brewer(type = "qual", palette = 6) +
   labs(x = "", y = "",
        title = "Rents",
