@@ -19,15 +19,15 @@ rent_small %>%
   geom_jitter() +
   geom_smooth() +
   facet_wrap(~city) +
-  scale_y_log10(labels = label_dollar(prefix = "USD", big.mark = ",", accuracy = 1)) +
+  scale_y_log10(labels = label_dollar(prefix = "USD ", big.mark = ",", accuracy = 1)) +
   scale_x_continuous() +
   theme_classic() +
   theme(legend.position = "none",
         axis.text.y = element_text(angle = 90)) +
   scale_colour_brewer(type = "qual", palette = 6) +
   labs(x = "", y = "",
-       title = "Rents in the Bay Area - Core Cities",
-       caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nChart: @weiyuet #TidyTuesday")
+       title = "Rents in the Bay Area - The three core cities",
+       caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nGraphic: @weiyuet #TidyTuesday")
 
 ggsave("2022/w27/rent-bay-area-core-cities.png", width = 9, height = 6)
   
