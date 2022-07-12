@@ -7,3 +7,6 @@ Following and learning, and trying to copy and improve my own skills in R progra
 Main repository: https://github.com/rfordatascience/tidytuesday
 
 Copy from other inspiring visualisations and my own practice.
+
+# My `#TidyTuesdays`
+## [2021](data/2021) | [2022](data/2022)
