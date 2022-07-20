@@ -11,8 +11,8 @@ sports %>% group_by(sports) %>%
   summarise(., rev_menwomen = sum(total_rev_menwomen)) %>% 
   arrange(., desc(rev_menwomen)) %>% 
   slice_head(n = 7) %>% 
-  ggplot(aes(x = sports, y = rev_menwomen, colour = sports)) +
-  geom_point(size = 2) +
+  ggplot(aes(x = sports, y = rev_menwomen, colour = sports, size = rev_menwomen)) +
+  geom_point() +
   scale_y_log10(labels = label_dollar(prefix = "$", big.mark = ",")) +
   scale_colour_discrete(type = "qual") +
   theme_classic() +
@@ -20,7 +20,7 @@ sports %>% group_by(sports) %>%
         axis.text.y = element_text(angle = 90)) +
   labs(x = "", y = "",
        title = "Top 7 Sports by Combined Revenue",
-       caption = "#TidyTuesday")
+       caption = "Source: U.S. Department of Education EADA\n#TidyTuesday")
 
 # Save png
 ggsave("2022/w13/top-sports-combined-revenue.png", width = 7, height = 5)
