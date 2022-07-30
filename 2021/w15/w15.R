@@ -14,8 +14,7 @@ tidy_brazil_loss <- function(variable){
     select(year, variable) %>% 
     mutate(cause = as.character(variable)) %>% 
     select(year, cause, variable) %>% 
-    rename("loss" = variable)
-}
+    rename("loss" = variable)}
 
 # Creating a list of variables that will be run through the tidy_brazil_loss function
 ## First three variables skipped (entity, code, year): entity and code irrelevant because all observations from Brazil
