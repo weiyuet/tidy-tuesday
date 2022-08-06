@@ -9,7 +9,7 @@ rent <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/
 rent_small <- rent %>% 
   drop_na() %>% 
   select(year, nhood, city, price, beds) %>% 
-  filter(city == "oakland" | city == "san francisco" | city == "san jose") %>% 
+  filter(city == "oakland" | city == "san jose" | city == "san francisco") %>% 
   arrange(year)
 
 # Prelim plot
