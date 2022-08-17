@@ -30,9 +30,9 @@ wheels %>%
                      breaks = seq(100, 700, 50)) +
   theme_classic() +
   theme(legend.position = "bottom") +
-  labs(x = "Date of open", y = "Height in metres",
+  labs(x = "Year of open", y = "Height in metres",
        size = "Number of cabins",
-       title = "Height of Ferris Wheels vs. Date of Open",
+       title = "Height of Ferris Wheels vs. Year of Open",
        caption = "Source: Emil Hvitfeldt\nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
