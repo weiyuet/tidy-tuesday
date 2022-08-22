@@ -3,6 +3,7 @@ library(forcats)
 library(tidytext)
 library(tidyverse)
 library(tidytuesdayR)
+library(ggsci)
 
 # Load data
 tt <- tt_load("2021-03-23")
@@ -54,9 +55,9 @@ agree_with_US_count %>%
   ggplot(aes(n, fct_reorder(country, n), fill = agree_with_US)) +
   geom_col(show.legend = FALSE) +
   facet_wrap(~agree_with_US, ncol = 2, scales = "free") +
-  theme_light() +
-  scale_fill_brewer(type = "qual", palette = 2, direction = -1) +
-  labs(x = "Votes on important UN resolutions", y = "",
+  theme_classic() +
+  scale_fill_jco() +
+  labs(x = "", y = "",
        title = "Votes on important United Nations (UN) resolutions",
        caption = "Source: Voeten, Erik, Data and Analyses of Voting in the UN General Assembly (July 17, 2012)")
   
@@ -67,11 +68,11 @@ votes_by_issue %>%
   ggplot(aes(x = date, y = n, group = agree_with_US, colour = agree_with_US)) +
   geom_line(size = 0.8) +
   facet_wrap(~issue, scales = "free") +
-  theme_light() +
+  theme_classic() +
   theme(legend.position = "bottom") +
   theme(legend.text = element_text(size = 12)) +
-  scale_fill_brewer(type = "qual", palette = 2) +
-  labs(x = "", y = "UN resolution votes",
+  scale_colour_jco() +
+  labs(x = "", y = "",
        title = "Votes on UN resolutions over time by issue",
        subtitle = "Agreement/disagreement with US vote used to gauge consensus on issues",
        caption = "Source: Voeten, Erik, Data and Analyses of Voting in the UN General Assembly (July 17, 2012)",

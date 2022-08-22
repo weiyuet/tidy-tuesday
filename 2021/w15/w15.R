@@ -1,6 +1,7 @@
 # Loading libraries
 library(tidyverse)
 library(tidytuesdayR)
+library(scales)
 
 # Loading data
 tt <- tt_load("2021-04-06")
@@ -52,7 +53,8 @@ tidy_brazil %>%
   geom_line(colour = "gray35" ,size = 0.8) +
   geom_hline(yintercept = 10000, linetype = 2, size = 0.5) +
   facet_wrap(~cause, scales = "free") +
-  theme_light() + 
+  scale_y_continuous(labels = label_number(big.mark = ",")) +
+  theme_classic() + 
   guides(colour = "none") +
   labs(x = "",
        y = "Forest loss (hectares)",
