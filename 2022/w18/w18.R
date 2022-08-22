@@ -1,6 +1,7 @@
 # Load libraries
 library(tidyverse)
 library(scales)
+library(ggsci)
 
 # Load data capacity
 capacity <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-03/capacity.csv')
@@ -9,12 +10,12 @@ capacity <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytues
 capacity %>% 
   ggplot(aes(x = year, y = total_gw, colour = type)) +
   geom_line() +
-  geom_point(show.legend = "none") +
+  geom_point(show.legend = FALSE) +
   scale_y_log10() +
   theme_classic() +
   theme(legend.title = element_blank(),
         legend.position = c(0.85, 0.3)) +
-  scale_colour_brewer(type = "qual", palette = 2) +
+  scale_colour_jco() +
   labs(x = "", y = "Total GW",
        title = "Total Installed Capacity",
        caption = "Source: Berkeley Lab\nGraphic: @weiyuet #TidyTuesday")
@@ -34,13 +35,14 @@ average_cost_long <- average_cost %>%
 average_cost_long %>% 
   ggplot(aes(x = year, y = average_cost, colour = type)) +
   geom_line() +
-  geom_point(show.legend = "none") +
+  geom_point(show.legend = FALSE) +
   scale_x_continuous(breaks = seq(2008, 2022, 2), expand = c(0, 0)) +
-  scale_y_log10(labels = label_dollar(prefix = "$")) +
+  scale_y_log10(limits = c(10, 300),
+                labels = label_dollar(prefix = "$")) +
   theme_classic() +
   theme(legend.title = element_blank(),
         legend.position = c(0.8, 0.8)) +
-  scale_colour_brewer(type = "qual", palette = 2 , labels = c("Gas MWh", "Solar MWh", "Wind MWh")) +
+  scale_colour_jco(labels = c("Gas MWh", "Solar MWh", "Wind MWh")) +
   labs(x = "", y = "",
        title = "Average Cost of ...",
        caption = "Source: Berkeley Lab\nGraphic: @weiyuet #TidyTuesday")

@@ -1,6 +1,7 @@
 # Load libraries
 library(tidyverse)
 library(scales)
+library(ggsci)
 
 # Load data
 rent <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-07-05/rent.csv')
@@ -25,7 +26,7 @@ rent_core_cities %>%
   theme_classic() +
   theme(legend.position = "none",
         axis.text.y = element_text(angle = 90)) +
-  scale_colour_brewer(type = "qual", palette = 6) +
+  scale_colour_jco() +
   labs(x = "", y = "",
        title = "Rents in the Bay Area: The Three Core Cities",
        caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nGraphic: @weiyuet #TidyTuesday")
