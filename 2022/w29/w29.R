@@ -104,7 +104,7 @@ internetuser_asean %>%
        caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
-ggsave("2022/w29/internetuser_asean.png", width = 6, height = 8)
+ggsave("2022/w29/internetuser-asean.png", width = 6, height = 8)
 
 # Wrangle data
 # Fixed telephones in 10 ASEAN member nations
@@ -129,4 +129,4 @@ telephone_asean %>%
        caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
-ggsave("2022/w29/telephone_asean.png", width = 6, height = 8)
+ggsave("2022/w29/telephone-asean.png", width = 6, height = 8)
