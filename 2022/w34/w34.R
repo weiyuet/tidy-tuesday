@@ -20,6 +20,8 @@ chips %>% drop_na() %>%
        title = 'Process Size in Semiconductors',
        caption = 'Source: The CHIP Dataset \n#TidyTuesday')
 
+# Save png
+
 ggsave('2022/w34/process-size-nm.png', width = 6, height = 4.5)
 
 # Plot transistor count Moore's Law
@@ -35,3 +37,6 @@ chips %>% drop_na() %>%
   labs(x = '', y = 'Transistor count in millions',
        title = 'Transistor Count in Semiconductors aka Moore\'s Law',
        caption = 'Source: The CHIP Dataset \n#TidyTuesday')
+
+# Save png
+ggsave('2022/w34/transistor-count-millions.png', width = 6, height = 4.5)
