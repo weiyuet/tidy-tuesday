@@ -10,7 +10,7 @@ chips <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday
 # Plot process size in nm
 chips %>% drop_na() %>% 
   ggplot(aes(x = year, y = process_size_nm)) +
-  geom_smooth() + 
+  geom_smooth(colour = '#2086AE') + 
   scale_x_continuous(limits = c(2000, 2025),
                      breaks = seq(2000, 2025, 5)) +
   scale_y_continuous(limits = c(0, 200),
@@ -21,13 +21,12 @@ chips %>% drop_na() %>%
        caption = 'Source: The CHIP Dataset \n#TidyTuesday')
 
 # Save png
-
 ggsave('2022/w34/process-size-nm.png', width = 6, height = 4.5)
 
 # Plot transistor count Moore's Law
 chips %>% drop_na() %>% 
   ggplot(aes(x = year, y = transistors_million)) +
-  geom_smooth() +
+  geom_smooth(colour = '#2086AE') +
   scale_x_continuous(limits = c(2000, 2025),
                      breaks = seq(2000, 2025, 5)) +
   scale_y_continuous(limits = c(0, 20000),

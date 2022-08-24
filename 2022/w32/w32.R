@@ -11,7 +11,7 @@ wheels %>%
   mutate(height_metres = height * 0.3048) %>% 
   ggplot(aes(x = ride_duration_minutes, y = height_metres)) +
   geom_point() +
-  geom_smooth() +
+  geom_smooth(colour = '#2086AE') +
   theme_classic() +
   labs(x = "Ride duration in minutes", y = "Height in metres",
        title = "Height of Ferris Wheels vs. Ride Duration",
