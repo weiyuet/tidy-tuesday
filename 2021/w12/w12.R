@@ -2,6 +2,7 @@
 library(tidyverse)
 library(scales)
 library(lubridate)
+library(ggsci)
 
 # Load data
 games <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-16/games.csv')
@@ -16,11 +17,13 @@ games %>%
   geom_smooth() +
   scale_y_continuous(labels = label_number(accuracy = 1, big.mark = ",")) +
   scale_x_continuous(labels = label_number(accuracy = 1, big.mark = ",")) +
-  scale_colour_brewer(type = "qual", palette = 2) +
+  scale_colour_jco() +
   theme_classic() +
   theme(legend.position = "bottom",
         legend.title = element_blank()) +
-  labs(title = "Peak vs. Average Number of Players Online",
+  labs(x = "", y = "",
+       title = "Peak vs. Average Number of Players Online",
+       subtitle = "y-axis: peak; x-axis: average",
        caption = "Source: Steam Charts\n#TidyTuesday")
 
 #Save png
@@ -41,10 +44,10 @@ games %>%
   geom_hline(yintercept = 100000, linetype = "dashed") +
   facet_wrap(~gamename, scales = "free") +
   scale_y_continuous(labels = label_number(accuracy = 1, big.mark = ",")) +
-  scale_fill_brewer(type = "qual", palette = 2) +
+  scale_fill_jco() +
   theme_classic() +
   labs(x = "", y = "Average players gained/lost",
-       title = "Average Number of Players Gained or Lost per Month",
+       title = "Players Gained or Lost per Month",
        subtitle = "Dashed lines at +/-100,000",
        caption = "Source: Steam Charts\n#TidyTuesday")
 
