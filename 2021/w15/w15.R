@@ -48,7 +48,7 @@ tidy_brazil
 # Plot the causes of deforestation in Brazil
 tidy_brazil %>% 
   ggplot(aes(year, loss, colour = cause)) +
-  geom_line(colour = "royalblue4" ,size = 0.8) +
+  geom_line(colour = "grey35" ,size = 0.8) +
   geom_hline(yintercept = 10000, linetype = 2, size = 0.5) +
   facet_wrap(~cause, scales = "free") +
   scale_y_continuous(labels = label_number(big.mark = ",")) +
