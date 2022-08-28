@@ -2,24 +2,26 @@
 library(forcats)
 library(tidytext)
 library(tidyverse)
-library(tidytuesdayR)
 library(ggsci)
 
 # Load data
-tt <- tt_load("2021-03-23")
+unvotes <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-23/unvotes.csv')
+roll_calls <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-23/roll_calls.csv')
+issues <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-23/issues.csv')
+
 
 # Wrangle data
 # Extract US votes on each UN resolution
-US_votes <- tt$unvotes %>% 
+US_votes <- unvotes %>% 
   filter(country_code == "US") %>% 
   select(rcid, vote)
 colnames(US_votes) <- c("rcid", "US_vote")
 
 # Combine US votes and resolution issues with "roll_calls" data set for important votes
-important_votes <- tt$roll_calls %>% 
+important_votes <- roll_calls %>% 
   filter(rcid %in% US_votes$rcid &
            importantvote == 1)
-important_votes <- left_join(important_votes, tt$unvotes,
+important_votes <- left_join(important_votes, unvotes,
                              by = "rcid")
 important_votes <- left_join(important_votes, US_votes,
                              by = "rcid")
@@ -32,7 +34,7 @@ levels(important_votes$agree_with_US)
 levels(important_votes$agree_with_US) <- c("Votes in disagreement with US",
                                            "Votes in agreement with US")
 important_votes <- left_join(important_votes,
-                             tt$issues, by = "rcid")
+                             issues, by = "rcid")
 important_votes
 
 # Count number of votes for each country that matches with the US vote
