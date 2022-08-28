@@ -37,7 +37,7 @@ p2 <- chips %>% drop_na() %>%
 
 # Combined plot
 p <- p1 / p2
-p + plot_annotation(caption = 'Source: The CHIP Dataset \n#TidyTuesday')
+p + plot_annotation(caption = 'Source: The CHIP Dataset #TidyTuesday')
 
 # Save png
 ggsave('2022/w34/process-size-and-transistor-count.png', width = 6, height = 6)

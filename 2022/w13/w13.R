@@ -1,6 +1,7 @@
 # Load libraries
 library(tidyverse)
 library(scales)
+library(ggsci)
 
 # Load data
 sports <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-03-29/sports.csv')
@@ -14,13 +15,13 @@ sports %>% group_by(sports) %>%
   ggplot(aes(x = sports, y = rev_menwomen, colour = sports, size = rev_menwomen)) +
   geom_point() +
   scale_y_log10(labels = label_dollar(prefix = "$", big.mark = ",")) +
-  scale_colour_discrete(type = "qual") +
+  scale_colour_jco() +
   theme_classic() +
   theme(legend.position = "none",
         axis.text.y = element_text(angle = 90)) +
   labs(x = "", y = "",
        title = "Top 7 Sports by Combined Revenue",
-       caption = "Source: U.S. Department of Education EADA\n#TidyTuesday")
+       caption = "Source: U.S. Department of Education EADA #TidyTuesday")
 
 # Save png
 ggsave("2022/w13/top-sports-combined-revenue.png", width = 7, height = 5)
