@@ -58,6 +58,7 @@ agree_with_US_count %>%
   geom_col(show.legend = FALSE) +
   facet_wrap(~agree_with_US, ncol = 2, scales = "free") +
   theme_classic() +
+  theme(axis.text.y = element_text(angle = 30)) +
   scale_fill_jco() +
   labs(x = "", y = "",
        title = "Votes on important United Nations (UN) resolutions",
