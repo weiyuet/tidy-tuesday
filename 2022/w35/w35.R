@@ -19,7 +19,7 @@ pell %>% group_by(YEAR) %>%
   theme(axis.text.x = element_text(angle = 35, hjust = 1),
         axis.text.y = element_text(angle = 35, hjust = 1)) +
   labs(x = '', y = '',
-       title = 'Top 10 Institutions for Pell Awards 2017')
+       title = 'Top 10 Institutions for Pell Grants 2017')
 
 # Save png
 ggsave('2022/w35/pell-top-10-2017.png', width = 7, height = 5)

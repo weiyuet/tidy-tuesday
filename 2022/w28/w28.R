@@ -47,7 +47,7 @@ tidy_flights %>%
   theme(legend.position = 'bottom') +
   labs(x = '', y = '',
        fill = '',
-       title = 'Arrivals and Departures of Busiest Airports in Europe',
+       title = 'Arrivals and Departures of Busiest Airports in Europe 2022',
        caption = 'Source: EUROCONTROL #TidyTuesday')
 
 # Save png
