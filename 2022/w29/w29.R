@@ -17,12 +17,13 @@ bcg_asean <- technology %>%
 bcg_asean %>% 
   ggplot(aes(x = year, y = value, colour = iso3c)) +
   geom_line(size = 1.05, colour = "gray 35") +
+  geom_hline(yintercept = 80, colour = "red", linetype = "dotted") +
   facet_wrap(~iso3c, ncol = 2) +
   theme_classic() +
   theme(legend.position = "none") +
   labs(x = "", y = "",
-       title = "BCG Vaccinations in the 10 ASEAN Member Nations",
-       subtitle = "Percentage of children who received an immunization",
+       title = "BCG Vaccinations (10 ASEAN Member Nations)",
+       subtitle = "Percentage of children who received an immunization - horizontal line = 80%",
        caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
@@ -40,12 +41,13 @@ pol3_asean <- technology %>%
 pol3_asean %>% 
   ggplot(aes(x = year, y = value, colour = iso3c)) +
   geom_line(size = 1.05, colour = "gray 35") +
+  geom_hline(yintercept = 80, colour = "red", linetype = "dotted") +
   facet_wrap(~iso3c, ncol = 2) +
   theme_classic() +
   theme(legend.position = "none") +
   labs(x = "", y = "",
-       title = "Polio Vaccinations in the 10 ASEAN Member Nations",
-       subtitle = "Percentage of children who received an immunization",
+       title = "Polio Vaccinations (10 ASEAN Member Nations)",
+       subtitle = "Percentage of children who received an immunization - horizontal line = 80%",
        caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
@@ -74,8 +76,8 @@ cell_subsc_asean %>%
   theme_classic() +
   theme(legend.position = "none") +
   labs(x = "", y = "",
-       title = "Cell subscribers in the 10 ASEAN Member Nations",
-       subtitle = "Log scale on y-axis, and horizontal line at 1 million subscribers",
+       title = "Cell subscribers (10 ASEAN Member Nations)",
+       subtitle = "Log scale y-axis, and horizontal line at 1 million subscribers",
        caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
@@ -99,8 +101,8 @@ internetuser_asean %>%
   theme_classic() +
   theme(legend.position = "none") +
   labs(x = "", y = "",
-       title = "Internet users in 10 ASEAN member nations",
-       subtitle = "Log scale on y-axis, and horizontal line at 1 million users",
+       title = "Internet users (10 ASEAN member nations)",
+       subtitle = "Log scale y-axis, and horizontal line at 1 million users",
        caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
@@ -124,8 +126,8 @@ telephone_asean %>%
   theme_classic() +
   theme(legend.position = "none") +
   labs(x = "", y = "",
-       title = "Fixed telephones in 10 ASEAN member nations",
-       subtitle = "Log scale on y-axis, and horizontal line at 100,000 telephones",
+       title = "Fixed telephones (10 ASEAN member nations)",
+       subtitle = "Log scale y-axis, and horizontal line at 100,000 telephones",
        caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
 
 # Save png
