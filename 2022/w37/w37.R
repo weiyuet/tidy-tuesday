@@ -20,7 +20,12 @@ bigfoot %>%
   ggplot(aes(x = season, y = n)) +
   geom_col(colour = "gray10", fill = "gray35") +
   geom_label(aes(x = season, y = n, label = round(n, 0)),
-    size = 3
+    hjust = 1,
+    vjust = 0.5,
+    colour = "white",
+    fill = NA,
+    label.size = NA,
+    size = 3.5
   ) +
   coord_flip() +
   scale_y_continuous(

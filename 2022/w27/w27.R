@@ -21,7 +21,7 @@ rent_core_cities %>%
   geom_point() +
   geom_jitter() +
   geom_smooth() +
-  facet_wrap(~city) +
+  facet_grid(~city) +
   scale_y_log10(
     labels = label_dollar(prefix = "USD ", big.mark = ",", accuracy = 1),
     limits = c(1000, 30000)
@@ -35,7 +35,7 @@ rent_core_cities %>%
   labs(
     x = "", y = "",
     title = "Rents in the Bay Area: The Three Core Cities",
-    caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nGraphic: @weiyuet #TidyTuesday"
+    caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nGraphic: @weiyuet #TidyTuesday2022 w27"
   )
 
 # Save png
@@ -64,7 +64,7 @@ permits_per_street %>%
   labs(
     x = "", y = "",
     title = "Construction Permit Types for Streets",
-    caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\n#TidyTuesday"
+    caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\n#TidyTuesday2022 w27"
   )
 
 # Save png
