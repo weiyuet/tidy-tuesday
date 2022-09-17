@@ -24,7 +24,7 @@ bcg_asean %>%
   labs(x = "", y = "",
        title = "BCG Vaccinations (10 ASEAN Member Nations)",
        subtitle = "Percentage of children who received an immunization - horizontal line = 80%",
-       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
+       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday 2022 w29")
 
 # Save png
 ggsave("2022/w29/bcg-vaccinations-asean.png", width = 6, height = 8)
@@ -48,7 +48,7 @@ pol3_asean %>%
   labs(x = "", y = "",
        title = "Polio Vaccinations (10 ASEAN Member Nations)",
        subtitle = "Percentage of children who received an immunization - horizontal line = 80%",
-       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
+       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday 2022 w29")
 
 # Save png
 ggsave("2022/w29/pol3-vaccinations-asean.png", width = 6, height = 8)
@@ -78,7 +78,7 @@ cell_subsc_asean %>%
   labs(x = "", y = "",
        title = "Cell subscribers (10 ASEAN Member Nations)",
        subtitle = "Log scale y-axis, and horizontal line at 1 million subscribers",
-       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
+       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday 2022 w29")
 
 # Save png
 ggsave("2022/w29/cell-subscribers-asean.png", width = 6, height = 8)
@@ -103,7 +103,7 @@ internetuser_asean %>%
   labs(x = "", y = "",
        title = "Internet users (10 ASEAN member nations)",
        subtitle = "Log scale y-axis, and horizontal line at 1 million users",
-       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
+       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday 2022 w29")
 
 # Save png
 ggsave("2022/w29/internetuser-asean.png", width = 6, height = 8)
@@ -128,7 +128,7 @@ telephone_asean %>%
   labs(x = "", y = "",
        title = "Fixed telephones (10 ASEAN member nations)",
        subtitle = "Log scale y-axis, and horizontal line at 100,000 telephones",
-       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday")
+       caption = "Source: nber.org \nGraphic: @weiyuet #TidyTuesday 2022 w29")
 
 # Save png
 ggsave("2022/w29/telephone-asean.png", width = 6, height = 8)
