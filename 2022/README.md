@@ -1,3 +1,6 @@
-# Archive of 2022 `#TidyTuesdays`
+## Archive of 2022 `#TidyTuesdays`
 
-w8 - `Federica Gazelloni` https://github.com/Fgazzelloni/TidyTuesday/tree/main/data/2022/w8_wfi
+![Week 27](2022/w27/rent-bay-area-core-cities.png)
+![Week 29](2022/w29/internetuser-asean.png)
+![Week 34](2022/w34/process-size-and-transistor-count.png)
+![Week 37](2022/w37/bigfoot-sightings-state.png)

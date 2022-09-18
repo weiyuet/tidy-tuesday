@@ -1,4 +1,4 @@
-# Archive of 2021 `#TidyTuesdays`
+## Archive of 2021 `#TidyTuesdays`
 
 w12 - Harrington (2021, March 23). Ronan's #TidyTuesday blog: Video Games and Sliced. Retrieved from https://tidytuesday.netlify.app/posts/2021-03-23-video-games-and-sliced/
 
