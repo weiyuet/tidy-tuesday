@@ -6,17 +6,26 @@ library(scales)
 plastics <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-01-26/plastics.csv")
 
 #Wrangle data
-plastics_singapore <- plastics %>% filter(country == "Singapore")
-
-#Prelim plot
-plastics_singapore %>%
-  mutate(parent_company = fct_reorder(parent_company, grand_total)) %>% 
-  ggplot(aes(x = parent_company, y = grand_total)) +
-  geom_col(colour = "gray10", fill = "gray35") +
-  scale_y_continuous(limits = c(0, 40),
-                     expand = c(0, 0)) +
-  coord_flip() +
+#Count of types of plastic discarded
+plastics %>%
+  select(year, hdpe, ldpe, pet, pp, ps, pvc) %>% 
+  group_by(year) %>% 
+  summarise(across(hdpe:pvc, sum, na.rm = TRUE)) %>% 
+  pivot_longer(!year, names_to = "type", values_to = "amount") %>%
+  mutate(type = fct_reorder(type, amount)) %>% 
+  ggplot(aes(x = amount, y = type, fill = as.factor(year))) +
+  geom_bar(stat = "identity", position = "dodge", colour = "gray10") + 
+  scale_x_continuous(labels = label_number(big.mark = ","),
+                     expand = c(0, 0),
+                     limits = c(0, 200000)) +
+  scale_fill_jco() +
   theme_classic() +
+  theme(legend.position = c(0.9, 0.2)) +
+  guides(fill = guide_legend(nrow = 1)) +
   labs(x = "", y = "",
-       title = "Plastic Pollution in Singapore",
-       caption = "Source: Break Free from Plastic\n Graphic: @weiyuet #TidyTuesday 2021 w5")
+       fill = "",
+       title = "Types of Plastic Discarded Globally",
+       caption = "Source: Break Free from Plastic\n Graphic: @weiyuet #TidyTuesday2021 w5")
+
+#Save png
+ggsave("2021/w5/types-of-plastic-discarded.png", width = 8, height = 4.5)
