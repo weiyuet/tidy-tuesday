@@ -7,19 +7,29 @@ pell <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/
 
 # Wrangle data
 # Top 10 for 2017
-pell %>% group_by(YEAR) %>% 
-  filter(YEAR == 2017) %>% 
-  mutate(mean_award = mean(AWARD)) %>% 
-  arrange(AWARD) %>% slice_tail(n = 10) %>% 
-  ggplot(aes(x = NAME, y = AWARD)) +
-  geom_col(colour = 'gray35') +
-  geom_hline(yintercept = 5558692, colour = 'red', linetype = 'dashed') +
-  scale_y_continuous(labels = label_number(prefix = 'US$', big.mark = ',')) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 35, hjust = 1),
-        axis.text.y = element_text(angle = 35, hjust = 1)) +
-  labs(x = '', y = '',
-       title = 'Top 10 Institutions for Pell Grants 2017')
+pell %>%
+      group_by(YEAR) %>%
+      filter(YEAR == 2017) %>%
+      arrange(AWARD) %>%
+      slice_tail(n = 10) %>%
+      mutate(NAME = fct_reorder(NAME, AWARD)) %>%
+      ggplot(aes(x = NAME, y = AWARD)) +
+      geom_col(colour = "gray10", fill = "gray35") +
+      scale_y_continuous(
+            expand = c(0, 0),
+            labels = label_number(prefix = "US$", big.mark = ",")
+      ) +
+      coord_flip() +
+      theme_classic() +
+      theme(
+            axis.text.x = element_text(angle = 0, hjust = 1),
+            axis.text.y = element_text(angle = 0, hjust = 1)
+      ) +
+      labs(
+            x = "", y = "",
+            title = "Top 10 Institutions for Pell Grants 2017",
+            caption = "Data: US Dept of Education\n Graphic: @weiyuet | #TidyTuesday2022 w35"
+      )
 
 # Save png
-ggsave('2022/w35/pell-top-10-2017.png', width = 7, height = 5)
+ggsave("2022/w35/pell-top-10-2017.png", width = 7, height = 5)

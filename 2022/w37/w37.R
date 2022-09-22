@@ -38,7 +38,7 @@ bigfoot %>%
   labs(
     x = "", y = "",
     title = "Bigfoot Sightings by Season (1869 - 2021)",
-    caption = "Source: Data.World\n Graphic: @weiyuet #TidyTuesday 2022 w37"
+    caption = "Data: Data.World\n Graphic: @weiyuet | #TidyTuesday2022 w37"
   )
 
 # Save png
@@ -59,7 +59,7 @@ bigfoot %>%
   labs(
     x = "", y = "",
     title = "Bigfoot Sightings by State (1869 - 2021)",
-    caption = "Source: Data.World\n Graphic: @weiyuet #TidyTuesday 2022 w37"
+    caption = "Data: Data.World\n Graphic: @weiyuet | #TidyTuesday2022 w37"
   )
 
 # Save png

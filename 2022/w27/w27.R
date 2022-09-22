@@ -39,7 +39,7 @@ rent_core_cities %>%
   labs(
     x = "", y = "",
     title = "Rents in the Bay Area: The Three Core Cities",
-    caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nGraphic: @weiyuet #TidyTuesday2022 w27"
+    caption = "Data: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\nGraphic: @weiyuet | #TidyTuesday2022 w27"
   )
 
 #Save png
@@ -70,7 +70,7 @@ permits_per_street %>%
   labs(
     x = "", y = "",
     title = "Construction Permit Types for Streets",
-    caption = "Source: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\n#TidyTuesday2022 w27"
+    caption = "Data: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\n#TidyTuesday2022 w27"
   )
 
 #Save png
