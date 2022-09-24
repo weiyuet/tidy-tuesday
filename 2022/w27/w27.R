@@ -9,10 +9,12 @@ rent <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/
 
 #Wrangle data
 #The three core cities in Bay Area
+cities_to_include <- c("oakland", "san jose", "san francisco")
+
 rent_core_cities <- rent %>%
   drop_na() %>%
   select(year, nhood, city, price, beds) %>%
-  filter(city == "oakland" | city == "san jose" | city == "san francisco") %>%
+  filter(city %in% cities_to_include) %>%
   mutate(city = case_when(city == "oakland" ~ "Oakland",
                           city == "san jose" ~ "San Jose",
                           city == "san francisco" ~ "San Francisco",
@@ -60,7 +62,7 @@ permits_per_street %>%
   slice_max(order_by = n, n = 20) %>%
   mutate(street_name = reorder_within(street_name, n, permit_type_definition)) %>%
   ggplot(aes(x = n, y = street_name, fill = permit_type_definition)) +
-  geom_col(show.legend = FALSE) +
+  geom_col(colour = "gray10", show.legend = FALSE) +
   facet_wrap(~permit_type_definition, ncol = 2, scales = "free") +
   scale_x_continuous(labels = label_number(big.mark = ","),
                      expand = c(0, 0)) +
@@ -69,7 +71,7 @@ permits_per_street %>%
   scale_fill_jco() +
   labs(
     x = "", y = "",
-    title = "Construction Permit Types for Streets",
+    title = "Construction Permit Types by Street",
     caption = "Data: Pennington, Kate (2018). Bay Area Craigslist Rental Housing Posts, 2000-2018.\n#TidyTuesday2022 w27"
   )
 

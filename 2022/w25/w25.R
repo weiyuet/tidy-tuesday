@@ -1,6 +1,5 @@
 # Setup
 library(tidyverse)
-library(skimr)
 library(scales)
 library(ggsci)
 library(glue)
@@ -11,15 +10,21 @@ census <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesda
 # slave_routes <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-16/slave_routes.csv')
 # african_names <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-16/african_names.csv')
 
-census_tidy <- census %>%
+census_us_total_tidy <- census %>%
   filter(region == "USA Total") %>%
   pivot_longer(., total:black_slaves, names_to = "population_segment", values_to = "count") %>%
-  filter(population_segment == "black" | population_segment == "black_free" | population_segment == "black_slaves") %>%
-  mutate(case_when(population_segment == "black" ~ "Black",
-                   population_segment == "black_free" ~ "Black Free",
-                   population_segment == "black_slaves" ~ "Black Slaves"))
+  mutate(population_segment = case_when(
+    population_segment == "black" ~ "Black",
+    population_segment == "black_free" ~ "Black Free",
+    population_segment == "black_slaves" ~ "Black Slaves",
+    population_segment == "white" ~ "White",
+    population_segment == "total" ~ "Total"
+  ))
 
-census_tidy %>% 
+population_segment_to_include <- c("Black", "Black Free", "Black Slaves")
+
+census_tidy %>%
+  filter(population_segment %in% population_segment_to_include) %>%
   ggplot(aes(x = year, y = count, colour = population_segment)) +
   geom_line(size = 1.1) +
   facet_grid(~population_segment) +
