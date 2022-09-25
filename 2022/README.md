@@ -1,13 +1,19 @@
 ## Archive of 2022 `#TidyTuesdays`
 
-Week 27
+[Week 18](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w18/w18.R)
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w18/average-cost.png)
+
+[Week 25](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w25/w25.R)
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w25/us-population-census-1800s.png)
+
+[Week 27](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w27/w27.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w27/rent-bay-area-core-cities.png)
 
-Week 29
+[Week 29](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w29/w29.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w29/internetuser-asean.png)
 
-Week 34
+[Week 34](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w34/w34.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w34/process-size-and-transistor-count.png)
 
-Week 37
+[Week 37](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w37/w37.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w37/bigfoot-sightings-state.png)

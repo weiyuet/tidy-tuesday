@@ -1,6 +1,6 @@
-#Setup
+# Setup
 library(tidyverse)
 library(scales)
 
-#Load data
+# Load data
 HydroWASTE_v10 <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-20/HydroWASTE_v10.csv')
