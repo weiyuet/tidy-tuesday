@@ -6,7 +6,6 @@ library(ggsci)
 # Load data
 flights <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-07-12/flights.csv')
 
-# Wrangle data
 # Create tidy data set with one column for flight type, and one column for number
 tidy_flights_per_airport <- function(input_flight_type) {
   flights %>%
@@ -48,7 +47,7 @@ tidy_flights %>%
   labs(x = '', y = '',
        fill = '',
        title = 'Arrivals and Departures of Busiest Airports in Europe 2022',
-       caption = 'Source: EUROCONTROL #TidyTuesday')
+       caption = 'Data: EUROCONTROL #TidyTuesday2022 w28')
 
 # Save png
 ggsave('2022/w28/arrivals-departures-busiest-airports-europe.png', width = 7, height = 5)

@@ -17,7 +17,6 @@ average_cost_long <- average_cost %>%
 average_cost_long %>% 
   ggplot(aes(x = year, y = average_cost, colour = type)) +
   geom_step() +
-  geom_point() +
   scale_x_continuous(breaks = seq(min(average_cost$year), max(average_cost$year), 1),
                      limits = c(min(average_cost$year), max(average_cost$year)),
                      expand = c(0, 0)) +
