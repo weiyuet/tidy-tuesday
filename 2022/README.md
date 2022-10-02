@@ -17,3 +17,5 @@
 
 ### [Week 37](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w37/w37.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w37/bigfoot-sightings-state.png)
+
+EOL
