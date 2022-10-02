@@ -1,12 +1,12 @@
-#Setup
+# Setup
 library(tidyverse)
 library(scales)
+library(ggsci)
 
-#Load data
+# Load data
 plastics <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-01-26/plastics.csv")
 
-#Wrangle data
-#Count of types of plastic discarded
+# Wrangle Count of types of plastic discarded
 plastics %>%
   select(year, hdpe, ldpe, pet, pp, ps, pvc) %>% 
   group_by(year) %>% 
@@ -18,14 +18,14 @@ plastics %>%
   scale_x_continuous(labels = label_number(big.mark = ","),
                      expand = c(0, 0),
                      limits = c(0, 200000)) +
-  scale_fill_jco() +
+  scale_fill_aaas() +
   theme_classic() +
   theme(legend.position = c(0.9, 0.2)) +
   guides(fill = guide_legend(nrow = 1)) +
   labs(x = "", y = "",
        fill = "",
-       title = "Types of Plastic Discarded Globally",
+       title = "PET is the most common type of plastic discarded globally",
        caption = "Source: Break Free from Plastic\n Graphic: @weiyuet #TidyTuesday2021 w5")
 
-#Save png
+# Save image
 ggsave("2021/w5/types-of-plastic-discarded.png", width = 8, height = 4.5)
