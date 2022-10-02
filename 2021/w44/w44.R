@@ -2,8 +2,6 @@
 library(tidyverse)
 library(scales)
 library(ggsci)
-library(skimr)
-library(lubridate)
 
 # Load data
 ultra_rankings <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/ultra_rankings.csv')
