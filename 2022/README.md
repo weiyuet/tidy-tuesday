@@ -1,7 +1,10 @@
-## Archive of 2022 `#TidyTuesdays`
+## 2022 `#TidyTuesdays`
 
 ### [Week 18](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w18/w18.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w18/projected-price-solar.png)
+
+### [Week 24](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w24/w24.R)
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w24/extreme-dry.png)
 
 ### [Week 25](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w25/w25.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w25/us-population-census-1800s.png)
