@@ -1,4 +1,4 @@
-## Archive of 2021 `#TidyTuesdays`
+## 2021 `#TidyTuesdays`
 
 ### [Week 5](https://github.com/weiyuet/tidy-tuesday/blob/main/2021/w5/w5.R)
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2021/w5/types-of-plastic-discarded.png)
