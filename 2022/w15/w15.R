@@ -7,27 +7,35 @@ library(ggsci)
 # Load data
 indoor_pollution <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-04-12/indoor_pollution.csv')
 
+# Change column names to lower case
 indoor_pollution <- indoor_pollution %>% 
   clean_names()
 
+# Change country and percentage deaths column name
+indoor_pollution <-  indoor_pollution %>% 
+  rename(country = entity, 
+         percentage_deaths = deaths_cause_all_causes_risk_household_air_pollution_from_solid_fuels_sex_both_age_age_standardized_percent)
+
 # Visualize
 indoor_pollution %>% 
-  filter(entity == "Afghanistan") %>%
-  ggplot(aes(x = year, y = deaths_cause_all_causes_risk_household_air_pollution_from_solid_fuels_sex_both_age_age_standardized_percent)) +
+  filter(country == "Afghanistan") %>%
+  ggplot(aes(x = year, y = percentage_deaths)) +
   geom_line()
 
 locations <- c("African Region", "European Region", "Region of the Americas", "South-East Asia Region", "Western Pacific Region", "World", "G20", "OECD Countries")
 
 indoor_pollution %>% 
-  filter(entity %in% locations) %>% 
-  ggplot(aes(x = year, y = deaths_cause_all_causes_risk_household_air_pollution_from_solid_fuels_sex_both_age_age_standardized_percent, colour = entity)) +
+  filter(country %in% locations) %>% 
+  ggplot(aes(x = year, y = percentage_deaths, colour = country)) +
   geom_line() +
   scale_x_continuous(expand = c(0, 0),
                      limits = c(1990, 2020),
                      breaks = seq(1990, 2020, 5)) +
-  scale_y_continuous(labels = label_number(suffix = "%", decimal.mark = ".", accuracy = 1),
+  scale_y_continuous(labels = label_number(suffix = "%",
+                                           decimal.mark = ".",
+                                           accuracy = 0.1),
                      breaks = seq(0, 20, 2)) +
-  scale_colour_aaas() +
+  scale_colour_jco() +
   theme_classic() +
   theme(legend.position = "top") +
   guides(guide_legend(nrow = 2)) +
