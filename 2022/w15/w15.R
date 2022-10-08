@@ -28,7 +28,7 @@ indoor_pollution %>%
   filter(country %in% locations) %>% 
   ggplot(aes(x = year, y = percentage_deaths, colour = country)) +
   geom_line() +
-  scale_x_continuous(expand = c(0, 0),
+  scale_x_continuous(expand = c(0.01, 0),
                      limits = c(1990, 2020),
                      breaks = seq(1990, 2020, 5)) +
   scale_y_continuous(labels = label_number(suffix = "%",
