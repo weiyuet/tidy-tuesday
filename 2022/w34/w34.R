@@ -1,15 +1,19 @@
-#Setup
+###################
+# TidyTuesday w34 #
+###################
+
+#### Setup ####
 library(tidyverse)
 library(scales)
 library(patchwork)
-library(ggsci)
 
-#Load data
+#### Load data ####
 chips <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-23/chips.csv')
 
-#Wrangle data
-#Plot process size in nm
-p1 <- chips %>% drop_na() %>% 
+##### Wrangle data ####
+#### Plot process size in nm ####
+p1 <- chips %>% 
+  drop_na() %>% 
   ggplot(aes(x = year, y = process_size_nm)) +
   geom_smooth(colour = "gray35") + 
   scale_x_continuous(limits = c(2000, 2021),
@@ -22,7 +26,7 @@ p1 <- chips %>% drop_na() %>%
        title = 'Process Size in Semiconductors',
        subtitle = 'y-axis: Process size in nanometers')
 
-#Plot transistor count aka Moore's Law
+#### Plot transistor count aka Moore's Law ####
 p2 <- chips %>% drop_na() %>% 
   ggplot(aes(x = year, y = transistors_million)) +
   geom_smooth(colour = "gray35") +
@@ -37,9 +41,9 @@ p2 <- chips %>% drop_na() %>%
        title = 'Transistor Count in Semiconductors aka Moore\'s Law',
        subtitle = 'y-axis: Transistor count in millions')
 
-#Combined plot
+#### Combined plot ####
 p <- p1 / p2
-p + plot_annotation(caption = 'Source: The CHIP Dataset\nGraphic: @weiyuet #TidyTuesday 2021 w34')
+p + plot_annotation(caption = 'Data: The CHIP Dataset\nGraphic: @weiyuet #TidyTuesday 2022 w34')
 
-#Save png
+#### Save png ####
 ggsave('2022/w34/process-size-and-transistor-count.png', width = 6, height = 6)
