@@ -29,7 +29,7 @@ worldcups %>%
   theme_classic() +
   labs(x = "", y = "Goals per game",
        title = "Number of goals per game in the FIFA World Cup",
-       subtitle = "Goals scored per game is less than 3 in the modern era",
+       subtitle = "Goals scored per game is fewer than 3 in the modern era",
        caption = "Data: Kaggle - FIFA World Cup\nGraphic: @weiyuet | #TidyTuesday2022 w48")
 
 #### Save image ####
