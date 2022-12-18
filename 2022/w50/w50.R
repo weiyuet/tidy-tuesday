@@ -18,7 +18,7 @@ state_retail %>%
 state_retail %>% 
   count(subsector, sort = TRUE)
 
-#### Wrangle ####
+#### Combine year and month, and filtered for overall USA data ####
 state_retail <- state_retail %>% 
   mutate(time = make_yearmonth(year, month),
          across(starts_with("change_yoy"), as.numeric))
@@ -30,10 +30,11 @@ state_retail_time_series <- state_retail %>%
 usa <- state_retail_time_series %>% 
   filter(state_abbr == "USA")
 
-#### Visualize ####
+#### How did retail sales change between 2019 and 2022? ####
 usa %>% 
   ggplot(aes(x = time, y = change_yoy)) +
   geom_line() +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "red") +
   facet_wrap(~subsector, scales = "free_y") +
   theme_classic() +
   labs(x = "", y = "",
