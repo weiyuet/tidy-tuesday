@@ -27,4 +27,7 @@
 ### Week 48
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w48/goals-per-game.png)
 
+### Week 50
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w50/us-retail-yoy.png)
+
 EOL
