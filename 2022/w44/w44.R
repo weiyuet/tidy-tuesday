@@ -7,20 +7,33 @@ library(tidyverse)
 library(scales)
 
 #### Load data ####
-horror_movies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-11-01/horror_movies.csv')
+horror_movies <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-11-01/horror_movies.csv')
 
-#### What is the relationship between revenue and budget ####
+#### Wrangle data ####
+# Express budget and revenue in millions
+# Create release year and release month
+horror_movies <- horror_movies %>% 
+  mutate(budget = budget/1000000,
+         revenue = revenue/1000000,
+         release_year = as.numeric(format(release_date, "%Y")),
+         release_month = as.numeric(format(release_date, "%m")))
+
+#### When are horror movies released? ####
 horror_movies %>% 
-  filter(genre_names == "Horror") %>% 
-  ggplot(aes(x = revenue, y = budget, size = popularity, colour = genre_names)) +
-  geom_point() +
-  scale_x_log10(labels = label_number(prefix = "$",
-                                      big.mark = ",")) +
-  scale_y_continuous(labels = label_number(big.mark = ",")) +
+  filter(release_year >= 2003) %>% 
+  group_by(release_year, release_month) %>% 
+  summarise(count = n()) %>% 
+  ggplot(aes(x = release_month, y = count)) +
+  geom_line() +
+  facet_wrap(~release_year,
+             ncol = 4) +
+  scale_x_continuous(breaks = 1:12,
+                     labels = month.abb[1:12]) +
   theme_classic() +
-  theme(legend.position = "none") +
   labs(x = "", y = "",
-       title = "Popularity Against Revenue of Horror Movies",
-       subtitle = "Some relationship between popularity and revenue",
-       caption = "Data: www.themoviedb.org | #TidyTuesday2022 w44")
+       title = "When Are Horror Movies Released?",
+       subtitle = "Since the 2000s, more horror movies are released in October",
+       caption = "Data: www.themoviedb.org\n Graphic: @weiyuet | #TidyTuesday2022 w44")
+
+ggsave("2022/w44/when-are-horror-movies-released.png", width = 11, height = 7)
   
