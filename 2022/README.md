@@ -24,6 +24,9 @@
 ### Week 37
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w37/bigfoot-sightings-state.png)
 
+### Week 44
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w44/when-are-horror-movies-released.png)
+
 ### Week 48
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w48/goals-per-game.png)
 
