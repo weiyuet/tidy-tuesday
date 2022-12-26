@@ -34,7 +34,8 @@ usa <- state_retail_time_series %>%
 usa %>% 
   ggplot(aes(x = time, y = change_yoy)) +
   geom_line() +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "red") +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "black") +
+  geom_vline(xintercept = Mar, linetype = "dashed", colour = "red") +
   facet_wrap(~subsector, scales = "free_y") +
   theme_classic() +
   labs(x = "", y = "",
