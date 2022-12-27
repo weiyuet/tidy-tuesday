@@ -27,6 +27,9 @@
 ### Week 44
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w44/when-are-horror-movies-released.png)
 
+### Week 45
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w45/state-stations-number.png)
+
 ### Week 48
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2022/w48/goals-per-game.png)
 
