@@ -40,4 +40,4 @@ state_stations %>%
     caption = "Data: Federal Communications Commission\n Graphic: @weiyuet | #TidyTuesday2022 w45")
 
 #### Save image ####
-ggsave("2022/w45/state-stations-number.png", width = 8, height = 5)
+ggsave("2022/w45/state-stations-number.png", width = 8, height = 6)
