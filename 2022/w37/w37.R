@@ -1,19 +1,24 @@
-# Setup
+###################
+# tidytuesday w37 #
+###################
+
+#### Setup ####
 library(tidyverse)
 library(skimr)
 library(scales)
 
-# Load data
+#### Load data ####
 bigfoot <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-13/bigfoot.csv")
 
-# Explore data
+### Explore data ####
 skim(bigfoot) %>% summary()
 
 bigfoot %>%
   select_if(is_numeric) %>%
   skim()
 
-# Plot Bigfoot sightings by season
+#### Visualize ####
+# Which season sees the most sightings of Bigfoot?
 bigfoot %>%
   count(season) %>%
   mutate(season = fct_reorder(season, n)) %>%
@@ -41,10 +46,10 @@ bigfoot %>%
     caption = "Data: Data.World\n Graphic: @weiyuet | #TidyTuesday2022 w37"
   )
 
-# Save png
+# Save image
 ggsave("2022/w37/bigfoot-sightings-season.png", width = 6, height = 4.5)
 
-# Plot Bigfoot sightings by state
+# Which state sees the most sightings of Bigfoot?
 bigfoot %>%
   count(state) %>%
   mutate(state = fct_reorder(state, n)) %>%
@@ -62,5 +67,5 @@ bigfoot %>%
     caption = "Data: Data.World\n Graphic: @weiyuet | #TidyTuesday2022 w37"
   )
 
-# Save png
+# Save image
 ggsave("2022/w37/bigfoot-sightings-state.png", width = 10, height = 8)
