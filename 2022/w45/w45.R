@@ -1,6 +1,6 @@
-###################
-# tidytuesday w45 #
-###################
+########################
+# tidytuesday 2022 w45 #
+########################
 
 #### Setup ####
 library(tidyverse)
@@ -33,11 +33,10 @@ state_stations %>%
     breaks = seq(0, 1500, 100),
     expand = c(0, 0)) +
   theme_classic() +
-  labs(
-    x = "",
-    y = "",
-    title = "Which States Have the Most Number of Radio Stations?",
-    caption = "Data: Federal Communications Commission\n Graphic: @weiyuet | #TidyTuesday2022 w45")
+  labs(x = "",
+       y = "",
+       title = "Which States Have the Most Number of Radio Stations?",
+       caption = "Data: Federal Communications Commission\n Graphic: @weiyuet | #TidyTuesday2022 w45")
 
 #### Save image ####
 ggsave("2022/w45/state-stations-number.png", width = 8, height = 6)

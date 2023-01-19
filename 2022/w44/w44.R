@@ -1,6 +1,6 @@
-###################
-# tidytuesday w44 #
-###################
+########################
+# tidytuesday 2022 w44 #
+########################
 
 #### Setup ####
 library(tidyverse)
@@ -23,17 +23,18 @@ horror_movies %>%
   filter(release_year >= 2003) %>% 
   group_by(release_year, release_month) %>% 
   summarise(count = n()) %>% 
-  ggplot(aes(x = release_month, y = count)) +
+  ggplot(aes(x = release_month,
+             y = count)) +
   geom_line() +
   facet_wrap(~release_year,
              ncol = 4) +
   scale_x_continuous(breaks = 1:12,
                      labels = month.abb[1:12]) +
   theme_classic() +
-  labs(x = "", y = "",
+  labs(x = "",
+       y = "",
        title = "When Are Horror Movies Released?",
        subtitle = "Since the 2000s, more horror movies are released in October",
        caption = "Data: www.themoviedb.org\n Graphic: @weiyuet | #TidyTuesday2022 w44")
 
 ggsave("2022/w44/when-are-horror-movies-released.png", width = 11, height = 7)
-  

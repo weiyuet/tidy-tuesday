@@ -1,6 +1,6 @@
-###################
-# tidytuesday w50 #
-###################
+########################
+# tidytuesday 2022 w50 #
+########################
 
 #### Setup ####
 library(tidyverse)
@@ -25,20 +25,25 @@ state_retail <- state_retail %>%
 
 state_retail_time_series <- state_retail %>% 
   select(-fips, -naics, -year, -month) %>% 
-  as_tsibble(key = c(state_abbr, subsector), index = time)
+  as_tsibble(key = c(state_abbr, subsector),
+             index = time)
 
 usa <- state_retail_time_series %>% 
   filter(state_abbr == "USA")
 
 #### How did retail sales change between 2019 and 2022? ####
 usa %>% 
-  ggplot(aes(x = time, y = change_yoy)) +
+  ggplot(aes(x = time,
+             y = change_yoy)) +
   geom_line() +
-  geom_hline(yintercept = 0, linetype = "dashed", colour = "black") +
-  geom_vline(xintercept = Mar, linetype = "dashed", colour = "red") +
-  facet_wrap(~subsector, scales = "free_y") +
+  geom_hline(yintercept = 0,
+             linetype = "dashed",
+             colour = "red") +
+  facet_wrap(~subsector,
+             scales = "free_y") +
   theme_classic() +
-  labs(x = "", y = "",
+  labs(x = "",
+       y = "",
        title = "US Retail Sales Year-on-year Change",
        caption = "Data: US Census Bureau Monthly State Retails Sales\nGraphic: @weiyuet | #TidyTuesday2022 w50")
 

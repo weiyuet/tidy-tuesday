@@ -1,17 +1,21 @@
-# Setup
+########################
+# tidytuesday 2022 w40 #
+########################
+
+#### Setup ####
 library(tidyverse)
 library(skimr)
 library(lubridate)
 
-# Load data
+#### Load data ####
 product_hunt <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-10-04/product_hunt.csv')
 
-# Wrangle
+#### Wrangle ####
 product_hunt <- product_hunt %>% 
   mutate(release_date = date(release_date),
          last_updated_date = date(last_updated))
 
-# Visualize
+#### Visualize ####
 product_hunt %>% 
   ggplot(aes(x = release_date)) +
   geom_histogram(binwidth = 20)

@@ -1,7 +1,11 @@
-# Setup
+########################
+# tidytuesday 2022 w41 #
+########################
+
+#### Setup ####
 library(tidyverse)
 
-# Load data
+#### Load data ####
 yarn <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-10-11/yarn.csv')
 
 yarn %>% 
