@@ -4,7 +4,7 @@
   
   - Main repository: https://github.com/rfordatascience/tidytuesday
 
-  - Following, participating, and trying to improve my skills in `R programming`.
+  - Participating to improve my skills in `R programming`.
 
 ## My `#TidyTuesdays`
 ### [2021](2021) | [2022](2022) | [2023](2023)
