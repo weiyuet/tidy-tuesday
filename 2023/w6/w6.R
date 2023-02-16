@@ -56,8 +56,8 @@ p2 <- big_tech_stock_prices %>%
   theme(legend.title = element_blank())
 
 p <- p1 / p2
-p + plot_annotation(title = "Big Tech Stock Crash 2022",
-                    subtitle = "Adjusted close - after splits and dividend distributions",
+p + plot_annotation(title = "Big Tech Stock Crash of 2022",
+                    subtitle = "Plotted on a log scale, the 2022 crash is but a mere blip",
                     caption = "Data: Yahoo Finance via Kaggle (by Evan Gower)\nGraphic: @weiyuet | TidyTuesday2023 w6")
 
 #### Save image ####
