@@ -52,7 +52,7 @@ tidy_energy("_elec_per_capita") %>%
        y = "") +
   theme_classic()
 
-# Create an 
+# Create a vector containing different categories of energy
 category <- c("coal",
           "oil",
           "gas",

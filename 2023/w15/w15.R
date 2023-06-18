@@ -13,14 +13,18 @@ cagefreepercentages <- read_csv('https://raw.githubusercontent.com/rfordatascien
 
 #### Explore Data ####
 eggproduction %>% 
-  count(prod_type, sort = TRUE) # Only table eggs, and hatching eggs
+  count(prod_type,
+        sort = TRUE) # Only table eggs, and hatching eggs
 
 eggproduction %>% 
-  count(prod_process, sort = TRUE) # Three categories, all, cage-free (non-organic), and cage-free (organic)
+  count(prod_process,
+        sort = TRUE) # Three categories, all, cage-free (non-organic), and cage-free (organic)
 
 range(eggproduction$observed_month) # Date from 2016 - 2021
 
-#### Visualize ####
+#   ____________________________________________________________________________
+#   Visualize                                                               ####
+# How many organic, and non-organic eggs are produced?
 prod_process_selected <- c("cage-free (non-organic)",
                            "cage-free (organic)")
 

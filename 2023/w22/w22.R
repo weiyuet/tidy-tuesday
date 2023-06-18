@@ -46,6 +46,8 @@ p2 <- centenarians %>%
   theme(axis.text.x = element_text(angle = 90,
                                    vjust = 0.5))
 
+#   ____________________________________________________________________________
+#   Combine plots                                                           ####
 p <- (p1 | p2) +
   plot_annotation(title = "More centenarians passed away in January compared to other months",
                   caption = "Data: Wikipedia List of the verified oldest people via frankiethull on GitHub\n#TidyTuesday2023 w22")
