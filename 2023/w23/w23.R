@@ -86,7 +86,7 @@ tidy_energy("_share_elec") %>%
   ggplot(aes(x = year,
              y = value)) +
   geom_line(aes(group = country),
-            colour = "gray80",
+            colour = "gray70",
             show.legend = FALSE) +
   geom_smooth(method = "lm",
               se = FALSE) +
