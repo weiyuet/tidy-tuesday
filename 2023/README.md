@@ -21,4 +21,7 @@
 ### Week 23
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2023/w23/electricity-generation-share.png)
 
+### Week 25
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2023/w25/ufo.png)
+
 EOL
