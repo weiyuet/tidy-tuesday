@@ -96,7 +96,7 @@ tidy_energy("_share_elec") %>%
        y = "Share of electricty generation (percent)",
        title = "Electricity generation is transiting away from hydrocarbons very slowly",
        subtitle = "Blue line shows the overall linear trend; light gray lines are individual countries",
-       caption = "Data: Our World in Data (https://github.com/owid/energy-data)\nGraphic: @weiyuet | #TidyTuesday2023 w23") +
+       caption = "Data: Our World in Data (https://github.com/owid/energy-data)\n#TidyTuesday2023 w23") +
   theme_classic()
 
 #### Save Image ####
