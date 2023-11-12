@@ -36,7 +36,7 @@ p <- zonann_temps %>%
                names_to = "lat") %>% 
   mutate(
     hemi_sphere = if_else(str_detect(lat, "n"),
-                          "Norther Hemisphere",
+                          "Northern Hemisphere",
                           "Southern Hemisphere"),
     lat = factor(lat,
                  levels = lats,
