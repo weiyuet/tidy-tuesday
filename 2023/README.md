@@ -24,4 +24,7 @@
 ### Week 25
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2023/w25/ufo.png)
 
+### Week 28
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2023/w28/global-surface-temperatures.png)
+
 EOL
