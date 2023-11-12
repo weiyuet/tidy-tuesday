@@ -5,7 +5,6 @@
 #### Setup ####
 library(tidyverse)
 library(skimr)
-library(lubridate)
 library(scales)
 library(patchwork)
 
@@ -56,7 +55,7 @@ p1 <- ufo_sightings %>%
                      expand = c(0.01, 0)) +
   labs(x = NULL,
        y = NULL,
-       title = "The # of UFO sightings has increased over the years") +
+       title = "The number of reported UFO sightings has increased over the years") +
   theme_classic()
 
 #   ____________________________________________________________________________
@@ -85,7 +84,7 @@ p2 <- ufo_sightings %>%
 #   ____________________________________________________________________________
 #   Combine plots                                                           ####
 p <- (p1/p2) + 
-  plot_annotation(caption = "Data: National UFO Reporting Center, sunrise-sunset.org | #TidyTuesday 2023 w25")
+  plot_annotation(caption = "Data: National UFO Reporting Center, sunrise-sunset.org\nGraphic: @weiyuet | #TidyTuesday 2023 w25")
 
 #### Save Image ####
 ggsave("2023/w25/ufo.png",
