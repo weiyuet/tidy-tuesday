@@ -67,5 +67,5 @@ artists %>%
 
 #### Save Image ####
 ggsave("2023/w3/artists.png",
-       width = 5,
-       height = 7)
+       width = 7,
+       height = 5)
