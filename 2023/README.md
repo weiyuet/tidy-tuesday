@@ -1,5 +1,8 @@
 ## 2023 `#TidyTuesdays`
 
+### Week 3
+![](https://github.com/weiyuet/tidy-tuesday/blob/main/2023/w3/artists.png)
+
 ### Week 5
 ![](https://github.com/weiyuet/tidy-tuesday/blob/main/2023/w5/pet-cats-uk.png)
 
